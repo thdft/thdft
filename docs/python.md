@@ -14,6 +14,21 @@
 - [itertools](https://docs.python.org/3/library/itertools.html) 
 
 ```python 
+from dataclasses import dataclass
+
+
+@dataclass
+class Product:
+    name: str
+    price: float
+    in_stock: bool = True
+
+
+print(Product(name="Widget", price=19.99))
+# Product(name='Widget', price=19.99, in_stock=True)
+
+```
+```python 
 import itertools
 
 list(itertools.combinations(["a", "b", "c"], 2))
