@@ -35,6 +35,37 @@ list(itertools.combinations(["a", "b", "c"], 2))
 # [('a', 'b'), ('a', 'c'), ('b', 'c')]
 ```
 
+## Loops 
+
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class User:
+    name: str
+    age: int
+
+
+users: list[User] = [
+    {"name": "Alice", "age": 28},
+    {"name": "Bob", "age": 17},
+    {"name": "Carol", "age": 35},
+]
+
+# For loop (faster)
+adult_names: list[str] = []
+for user in users:
+    if user["age"] >= 18:
+        adult_names.append(user["name"].upper())
+
+# Map/filter
+adult_users = filter(lambda u: u["age"] >= 18, users)
+adult_names = list(map(lambda u: u["name"].upper(), adult_users))
+
+# List comprehension
+adult_names = [user["name"].upper() for user in users if user["age"] >= 18]
+```
 
 --- 
 
@@ -42,3 +73,4 @@ list(itertools.combinations(["a", "b", "c"], 2))
 
 - [10 Standard Library Modules Video](https://www.youtube.com/watch?v=eZ9RqnkJxsk)
 - [10 Standard Library Modules Repository](https://github.com/ArjanCodes/examples/tree/main/2025/standard)
+- [Let’s Replace All For Loops With Map and Filter Repository](https://github.com/ArjanCodes/examples/blob/main/2025/map/basic_example.py)
