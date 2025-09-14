@@ -1,5 +1,34 @@
 # Python 
 
+## f-String
+
+```python 
+name = "Bob"
+age = 25
+
+#  Using % operator (old style)
+print("My name is %s and I'm %d years old" % (name, age)) 
+
+# Using str.format()
+print("My name is {} and I'm {} years old".format(name, age))  
+
+# Using f-string
+print(f"My name is {name} and I'm {age} years old") 
+```
+
+```python
+print(f"{x=}, {y=}")
+print(f"{x + y=}")
+print(f"Price rounded to 2 decimals: {price:.2f}")
+print(f"Percentage with 1 decimal: {percentage:.1%}")
+print(f"Using comma as thousand separator: ${revenue:,.2f}")
+print(f"Using underscore as thousand separator: ${revenue:_.2f}")
+print(f"Left aligned:    |{name:<20}|")
+print(f"   Right aligned:|{name:>20}|")
+print(f" Center aligned: |{name:^20}|")
+print(f"Padding numbers with zeros: {customer_id:04d}")
+```
+
 ## 10 Standard Library Modules
 
 - [dataclasses](https://docs.python.org/3/library/dataclasses.html)
