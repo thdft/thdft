@@ -29,6 +29,40 @@ print(f" Center aligned: |{name:^20}|")
 print(f"Padding numbers with zeros: {customer_id:04d}")
 ```
 
+
+## Loops 
+
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class User:
+    name: str
+    age: int
+
+
+users: list[User] = [
+    {"name": "Alice", "age": 28},
+    {"name": "Bob", "age": 17},
+    {"name": "Carol", "age": 35},
+]
+
+# For loop (faster)
+adult_names: list[str] = []
+for user in users:
+    if user["age"] >= 18:
+        adult_names.append(user["name"].upper())
+
+# Map/filter
+adult_users = filter(lambda u: u["age"] >= 18, users)
+adult_names = list(map(lambda u: u["name"].upper(), adult_users))
+
+# List comprehension
+adult_names = [user["name"].upper() for user in users if user["age"] >= 18]
+```
+
+
 ## 10 Standard Library Modules
 
 - [dataclasses](https://docs.python.org/3/library/dataclasses.html)
@@ -62,38 +96,6 @@ import itertools
 
 list(itertools.combinations(["a", "b", "c"], 2))
 # [('a', 'b'), ('a', 'c'), ('b', 'c')]
-```
-
-## Loops 
-
-```python
-from dataclasses import dataclass
-
-
-@dataclass
-class User:
-    name: str
-    age: int
-
-
-users: list[User] = [
-    {"name": "Alice", "age": 28},
-    {"name": "Bob", "age": 17},
-    {"name": "Carol", "age": 35},
-]
-
-# For loop (faster)
-adult_names: list[str] = []
-for user in users:
-    if user["age"] >= 18:
-        adult_names.append(user["name"].upper())
-
-# Map/filter
-adult_users = filter(lambda u: u["age"] >= 18, users)
-adult_names = list(map(lambda u: u["name"].upper(), adult_users))
-
-# List comprehension
-adult_names = [user["name"].upper() for user in users if user["age"] >= 18]
 ```
 
 ## Python Libraries You Should Know About
