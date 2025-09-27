@@ -62,6 +62,38 @@ adult_names = list(map(lambda u: u["name"].upper(), adult_users))
 adult_names = [user["name"].upper() for user in users if user["age"] >= 18]
 ```
 
+# Datetime
+
+```python 
+import datetime
+
+# Get the current datetime
+now = datetime.datetime.now()
+print(now)
+
+# Get the current UTC datetime
+now_utc = datetime.datetime.now(datetime.UTC)
+print(now_utc)
+
+# Convert the datetime object to a Unix timestamp in seconds
+seconds_since_epoch_dt = now_utc.timestamp()
+print(seconds_since_epoch_dt)
+
+# Convert to milliseconds
+milliseconds_since_epoch_dt = int(seconds_since_epoch_dt * 1000)
+print(milliseconds_since_epoch_dt)
+
+# Start Time
+start_time = now_utc - datetime.timedelta(days=90)
+print(start_time)
+
+# Subtract a specific number of days from a specific date
+specific_date = datetime.datetime(2025, 1, 1, 0, 0, 0)
+print(specific_date)
+print(specific_date.timestamp())
+print(int(specific_date.timestamp() * 1000))
+```
+
 
 ## 10 Standard Library Modules
 
@@ -96,6 +128,25 @@ import itertools
 
 list(itertools.combinations(["a", "b", "c"], 2))
 # [('a', 'b'), ('a', 'c'), ('b', 'c')]
+```
+
+## Conditions
+
+**Is None vs None**
+
+```
+class Foo:
+    def __eq__(self, other):
+        return True
+foo = Foo()
+
+print(foo == None)
+# True
+
+print(foo is None)
+# False
+
+#-- is None is a bit (~50%) faster than == None
 ```
 
 ## Python Libraries You Should Know About
@@ -181,3 +232,4 @@ r = httpx.get('https://www.example.org/')
 - [10 Standard Library Modules Repository](https://github.com/ArjanCodes/examples/tree/main/2025/standard)
 - [Let’s Replace All For Loops With Map and Filter Repository](https://github.com/ArjanCodes/examples/blob/main/2025/map/basic_example.py)
 - [15 Python Libraries You Should Know About Video](https://www.youtube.com/watch?v=o06MyVhYte4)
+- [Is None vs None](https://jaredgrubb.blogspot.com/2009/04/python-is-none-vs-none.html)
